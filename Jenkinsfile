@@ -24,9 +24,16 @@ pipeline {
        
         stage('Build React App') {
             steps {
-                // Install project dependencies and build the React application
+                sh 'rm package-lock.json'
                 sh 'npm install'
                 sh 'npm build'
+               
+                
+            }
+        }
+         stage('run React App') {
+            steps {
+                
                  sh 'npm start'
                 
             }
