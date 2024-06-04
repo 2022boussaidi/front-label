@@ -26,7 +26,7 @@ pipeline {
             steps {
                 sh 'rm package-lock.json'
                 sh 'npm install'
-                sh 'npm build'
+                sh 'npm run  build'
                
                 
             }
