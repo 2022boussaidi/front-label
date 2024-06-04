@@ -17,7 +17,7 @@ pipeline {
     stages {
           stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/ip-label']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/2022boussaidi/reactUI']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/2022boussaidi/front-label']]])
             }
         }
 
