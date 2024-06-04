@@ -13,7 +13,7 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
-
+RUN npm run build 
 
 
 CMD ["start", "run", ]
