@@ -5,14 +5,6 @@ pipeline {
  
     tools { nodejs "NodeJS_14" }
 
-    environment {
-        // Define environment variables used throughout the pipeline
-        registryUrl = "http://YOUR_REGISTRY_IP:PORT"  // Replace with your Docker registry URL
-        imageTag = "YOUR_REGISTRY_IP:PORT/reactapp"   // Replace with your Docker image tag
-        dockerImage = ''
-        serverIp = "YOUR_SERVER_IP"                    // Replace with your server's IP address
-        serverUser = "YOUR_SERVER_USERNAME"            // Replace with your server's username
-    }
  
     stages {
           stage('Checkout') {
@@ -31,11 +23,31 @@ pipeline {
                 
             }
         }
-         stage('run React App') {
+          stage('Build docker image') {
             steps {
-                
-                 sh 'npm start'
-                
+                script {
+                    sh 'docker build -t chaimaboussaidi2000/front-label .'
+                }
+            }
+        }
+
+        stage('Push image to Hub') {
+            steps {
+                script {
+                    withCredentials([string(credentialsId: 'id', variable: 'nouveaupass123')]) {
+                        sh "echo \${nouveaupass123} | docker login -u chaimaboussaidi2000 --password-stdin"
+                    }
+                    sh "docker push chaimaboussaidi2000/front-label"
+                }
+            }
+        }
+
+        stage('Build and Run Docker Compose') {
+            steps {
+                script {
+                    // Assuming your docker-compose.yml file is in the project root
+                    sh 'docker-compose up -d'
+                }
             }
         }
 }
