@@ -1,0 +1,26 @@
+.search-bar {
+ 
+  border-radius: 10px; /* Reduce border radius */
+  background-color: #f8f9fa;
+  transition: border-color 0.2s ease-in-out;
+}
+
+
+
+.search-input {
+  border: none;
+  border-radius: 20px; /* Reduce border radius */
+  padding: 4px 8px; /* Adjust padding */
+  font-size: 14px; /* Reduce font size */
+}
+
+.search-button {
+  
+  border: none;
+  border-radius: 25px; 
+  /* Reduce border radius */
+  
+  transition: background-color 0.2s ease-in-out;
+}
+
+

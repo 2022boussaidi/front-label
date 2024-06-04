@@ -1,0 +1,7 @@
+.gray-card {
+    background-color: #dfcccc; /* Replace with your desired gray color code */
+  }
+  .small-card {
+    width: 230px; /* Set the desired width for smaller cards */
+    margin: 0 10px 0px 0; /* Add margin for spacing between cards */
+  }

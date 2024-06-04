@@ -1,0 +1,7 @@
+/* styles.css */
+
+/* Override Bootstrap's default link color */
+.navbar-dark .navbar-nav .nav-link {
+    color: white !important; /* Set the color to white */
+  }
+  
