@@ -16,13 +16,5 @@ COPY . .
 # Build the React app for production
 RUN npm run build
 
-# Use the official Nginx image to serve the static files
-FROM nginx:alpine
 
-# Copy the built React app from the previous stage to the Nginx HTML directory
-COPY --from=0 /app/build /usr/share/nginx/html
-
-
-
-# Start Nginx when the container launches
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["start", "run", ]
